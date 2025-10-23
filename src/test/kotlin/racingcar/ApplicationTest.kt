@@ -26,6 +26,20 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `자동차 이름 글자수 제한`(){
+        assertSimpleTest {
+            runException("123456,woni,jun")
+        }
+    }
+
+    @Test
+    fun `시도 횟수가 음수이면 예외 발생`(){
+        assertSimpleTest {
+            runException("12345","-1")
+        }
+    }
+
     override fun runMain() {
         main()
     }
@@ -34,4 +48,6 @@ class ApplicationTest : NsTest() {
         private const val MOVING_FORWARD: Int = 4
         private const val STOP: Int = 3
     }
+
+
 }
