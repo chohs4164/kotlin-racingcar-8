@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestFactory
 import org.junit.jupiter.api.assertThrows
 
 class ApplicationTest : NsTest() {
@@ -27,16 +28,16 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `자동차 이름 글자수 제한`(){
+    fun `자동차 이름 글자수 제한`() {
         assertSimpleTest {
-            runException("123456,woni,jun")
+            assertThrows<IllegalArgumentException> { runException("123456,woni,jun") }
         }
     }
 
     @Test
-    fun `시도 횟수가 음수이면 예외 발생`(){
+    fun `시도 횟수가 음수이면 예외 발생`() {
         assertSimpleTest {
-            runException("12345","-1")
+            assertThrows<IllegalArgumentException> { runException("12345", "-1") }
         }
     }
 
