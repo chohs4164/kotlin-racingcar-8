@@ -1,7 +1,6 @@
 package racingcar.model
 
-import kotlin.random.Random
-
+import camp.nextstep.edu.missionutils.Randoms
 
 class Car(
     val name: String, // 자동차 이름
@@ -14,7 +13,7 @@ class Car(
     }
 
     fun move() {
-        val random = Random.nextInt(10)
+        val random = Randoms.pickNumberInRange(0, 9)
         if (random >= 4)
             position++
     }
